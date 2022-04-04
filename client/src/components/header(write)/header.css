@@ -1,0 +1,17 @@
+.Title {
+  display: flex;
+  width: 100vw;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lora", serif;
+  color: black;
+  position: absolute;
+  font-size: 100px;
+}
+
+.headerImg{
+    width: 100vw;
+    height: 500px;
+    object-fit: cover;
+}

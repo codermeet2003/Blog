@@ -1,0 +1,66 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+}
+.about > div { 
+  display: flex;
+  flex: 30%;
+  flex-direction: column;
+  justify-items: center;
+  border: 2px solid black;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 20px;  
+  background-color: #e2ecff;
+}
+
+.last {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 20px;  
+  background-color: #e2ecff;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 500;
+    background: linear-gradient(45deg, #2f669b, #62df95);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 40px;
+}
+
+.roll {
+  font-size: 20px;
+}
+
+.bf {
+  font-size: 25px;
+  text-align: center;
+}
+
+.part {
+  font-size: 20px;
+}
+
+.Title {
+  display: flex;
+  width: 100vw;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lora", serif;
+  color: black;
+  position: absolute;
+  font-size: 100px;
+}
+
+.headerImg{
+    width: 100vw;
+    height: 500px;
+    object-fit: cover;
+}

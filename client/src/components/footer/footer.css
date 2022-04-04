@@ -1,0 +1,99 @@
+.Footer {
+  width: 100vw;
+  background-color: black;
+  color: white;  
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  height: 260px;
+}
+
+.down {
+  width: 100%;
+  height: 100px;
+  top: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 999;
+}
+
+.up {
+  flex: 100%;
+  height: 50px;
+  font-size: 50px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.bottom {
+  flex: 100%;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 200;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  color: gray;
+}
+
+.left,
+.right {
+  flex: 50%;
+  width: 100%;
+  padding: 10px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social {
+  margin: 10px;
+  padding: 10px;
+  width: 60%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  font-size: 20px;
+  color: white;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+.icon {
+  font-size: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.List {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ListItem {
+  margin-right: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
+
