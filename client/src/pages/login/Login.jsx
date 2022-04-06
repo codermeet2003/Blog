@@ -1,30 +1,36 @@
 import axios from "axios";
 import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./login.css";
 
+//Exporting the login function
 export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
   const { user, dispatch, isFetching } = useContext(Context);
 
+  //Handling the submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
+      // Retrieving the information entered by the user
       const res = await axios.post("http://localhost:8082/api/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
+      // If everything goes right, the login is succeeded
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
+      // If any error comes, it's failed
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
 
   console.log(user)
   return (
+    // Creating a login form
     <div className="login">
     <button className="loginRegisterButton">
         <Link className="link" to="/register">

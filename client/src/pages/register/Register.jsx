@@ -3,18 +3,21 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./register.css";
 
+//Exporting the function Register
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
+  // Creating a data object
   const data = {
     username,
     email,
     password,
   };
 
+  // On clicking the register button, if everything goes right, redirect to the login page else show error
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
@@ -25,6 +28,7 @@ export default function Register() {
       setError(true);
     }
   };
+  //Creating a register form
   return (
     <div className="register">
     <button className="registerLoginButton">

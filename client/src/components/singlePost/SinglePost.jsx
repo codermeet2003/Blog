@@ -1,11 +1,17 @@
+//Importing axios for making HTTP request
 import axios from "axios";
+
+//Importing the react hooks
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
 
+//Exporting the function Single Post
 export default function SinglePost() {
+
+  //Defining the constants using React Hooks
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
@@ -17,6 +23,8 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
+
+      //Making a request to get image of a particular post, and title, and description of the post as a response
       const res = await axios.get("http://localhost:8082/api/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
@@ -25,6 +33,7 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
+  //handleDelete deletes a particular post
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:8082/api/posts/${post._id}`, {
@@ -34,6 +43,7 @@ export default function SinglePost() {
     } catch (err) {}
   };
 
+  //handleUpdate updates a particular post
   const handleUpdate = async () => {
     try {
       await axios.put(`http://localhost:8082/api/posts/${post._id}`, {
@@ -51,6 +61,8 @@ export default function SinglePost() {
         {post.photo && (
           <img src={PF + post.photo} alt="" className="singlePostImg" />
         )}
+
+        {/* If the user is logged in, then access him/her the updating/deleting rights, else don't */}
         {updateMode ? (
           <input
             type="text"
@@ -77,16 +89,22 @@ export default function SinglePost() {
           </h1>
         )}
         <div className="singlePostInfo">
+          
+          {/* On clicking the author, redirects to the author's posts */}
           <span className="singlePostAuthor">
             Author:
             <Link to={`/?user=${post.username}`} className="link">
               <b> {post.username}</b>
             </Link>
           </span>
+
+          {/* Showing the post date */}
           <span className="singlePostDate">
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
+
+        {/* If the user is logged in, then let him/her update his post, and show the text area */}
         {updateMode ? (
           <textarea
             className="singlePostDescInput"

@@ -4,12 +4,14 @@ import Header from "../../components/header(write)/Header";
 import axios from "axios";
 import { Context } from "../../context/Context";
 
+//Exporting the Write function
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
 
+  //If user wants to create a new post
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
@@ -17,6 +19,8 @@ export default function Write() {
       title,
       desc,
     };
+
+    //For posting a picture with the post, upload to the image database
     if (file) {
       const data =new FormData();
       const filename = Date.now() + file.name;
@@ -27,12 +31,16 @@ export default function Write() {
         await axios.post("http://localhost:8082/api/upload", data);
       } catch (err) {}
     }
+
+    //For creating a new post in database
     try {
       const res = await axios.post("http://localhost:8082/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };
   return (
+
+    // Creating a write form
     <>
       <Header />
     <div className="write">

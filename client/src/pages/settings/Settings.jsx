@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 
+//Exporting the Settings function
 export default function Settings() {
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
@@ -11,6 +12,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
+  //Database for images
   const PF = "http://localhost:8082/images/"
 
   const handleSubmit = async (e) => {
@@ -23,6 +25,7 @@ export default function Settings() {
       password,
     };
     if (file) {
+      // If user wants to update his profile pic
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
@@ -33,6 +36,7 @@ export default function Settings() {
       } catch (err) {}
     }
     try {
+      // If user wants to update his/her profile
       const res = await axios.put("http://localhost:8082/api/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
@@ -40,6 +44,8 @@ export default function Settings() {
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
+
+  // Form for settings
   return (
     <div className="settings">
       <div className="settingsWrapper">

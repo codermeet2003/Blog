@@ -1,16 +1,19 @@
 import { useContext } from "react";
-// import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./top.css"
 
+//Exporting the TopBar function
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
 
+  //handleLogout triggers the logout
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
   return (
+
+    //A responsive navbar 
     <div className="navbar navbar-expand-lg navbar-light top">
       <div className="topLeft">
       <a className="title navbar-brand">React-App</a>
@@ -37,6 +40,8 @@ export default function TopBar() {
       </div>
       <div className="topRight">
       <ul className="topList navbar-nav me-auto">
+        
+        {/* If the user is logged in, display logout & profile button, else display login & register button */}
             {user ? (
               <>
               <li class="nav-item">

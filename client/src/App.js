@@ -1,3 +1,4 @@
+// Importing all the components
 import Home from "./pages/home/Home";
 import TopBar from "./components/topbar/Topbar";
 import Footer from "./components/footer/Footer";
@@ -12,12 +13,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
 
+//Creating an app
 function App() {
   const { user } = useContext(Context);
   return (
     <Router>
       <TopBar />
       <Switch>
+
+        {/* Giving path to various pages */}
         <Route exact path="/">
           <Home />
         </Route>

@@ -1,5 +1,6 @@
 import "./about.css";
 
+//Exporting the About function
 export default function About() {
   return (
     <>
@@ -7,6 +8,8 @@ export default function About() {
       <div className="Title">
         <span>About Us</span>
       </div>
+
+      {/* Image for Background */}
       <img
         className="headerImg"
         src="https://easy-groceries.de/wp-content/uploads/2018/10/about-us-background-images-for-website-9-1.jpg"
@@ -14,6 +17,8 @@ export default function About() {
       />
     </div>
         <div className="about">
+
+            {/* Contribution Grids */}
             <div>
                 <h2>Sachin Dapkara</h2>
                 <label className="roll">LCS2021001</label>

@@ -1,10 +1,12 @@
 import "./ContactInfo.css"
 
+// Exporting the ContactInfo function
 export default function ContactInfo(){
     return (
         <div>
             <h1>Contact Us</h1>
 
+            {/* Used Bootstrap Bordered Table */}
             <table className="table-information table table-bordered">
                 <tbody>
                     <tr>
