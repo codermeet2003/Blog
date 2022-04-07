@@ -1,4 +1,4 @@
 .DS_Store
 mykey
 mykey.pub
-client/.env
+api/.env
